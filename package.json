@@ -1,0 +1,29 @@
+{
+  "name": "star_wars_movies",
+  "version": "1.0.0",
+  "description": "Web database about Star Wars movies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cc-team-delta/StarWarsMovies.git"
+  },
+  "keywords": [
+    "starwars",
+    "star",
+    "wars",
+    "movies"
+  ],
+  "author": "CodersCamp_Team_Delta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cc-team-delta/StarWarsMovies/issues"
+  },
+  "homepage": "https://github.com/cc-team-delta/StarWarsMovies#readme",
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}
