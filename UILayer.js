@@ -1,4 +1,4 @@
-// ******* UI Layer *******
+// ******* UI Layer ********
 
 // DOM nodes
 let $moviesList = document.querySelector(".movies-list");
