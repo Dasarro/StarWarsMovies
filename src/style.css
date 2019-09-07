@@ -5,6 +5,7 @@
     min-height: 500px;
     background-color: #C4C4C4;
     margin: auto;
+    opacity: 0.1;
 }
 
 .movie-search-input {
@@ -39,8 +40,8 @@
     background: transparent;
     color: forestgreen;
     font-family: 'starjedi';
-    /*font-weight: bold;
-    font-size: 12px;*/
+    font-weight: bold;
+    /*font-size: 12px;*/
     border: none;
     outline: none;
     z-index: 1;
@@ -57,7 +58,7 @@
 
 .button-img {
     height: 65px;
-    
+    margin-left: 20%;
 }
 
 .search-panel {
