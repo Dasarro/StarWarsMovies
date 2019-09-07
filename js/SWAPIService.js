@@ -1,3 +1,21 @@
+//Get movies and push into array
+async function getFilms(){
+    const movies = [];
+    let url = "https://swapi.co/api/films/";
+    while(url !== null){
+        const response = await getResponse(url);
+        movies.push(...response.results);
+        url = response.next;
+    }
+    return movies;
+}
+// Get single movie
+async function getFilm(url){
+    let movie = await getResponse(url);
+    return movie; 
+}
+
+
 async function  sendingRequest(moviesName){
     const url = "https://swapi.co/api/films/?search=";
     const link = encodeURI(url + moviesName);
@@ -70,3 +88,36 @@ async function getCharacter(URL){
     return character; 
 }
 
+
+//Get movies and push into array
+async function getFilms(){
+    const movies = [];
+    let url = "https://swapi.co/api/films/";
+    while(url !== null){
+        const response = await getResponse(url);
+        movies.push(...response.results);
+        url = response.next;
+    }
+    return movies;
+}
+// Get single movie
+async function getFilm(url){
+    let movie = await getResponse(url);
+    return movie; 
+}
+// Get all vehicles
+async function getVehicles(){
+    const vehicles = [];
+    let URL = 'https://swapi.co/api/vehicles/';
+    while(URL !== null){
+        const response = await getResponse(URL);
+        vehicles.push(...response.results);
+        URL = response.next;
+    }
+    return vehicles;
+}
+// Get one specific vehicle
+async function getVehicle(URL){
+    let vehicle = await getResponse(URL);
+    return vehicle; 
+}

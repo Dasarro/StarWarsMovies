@@ -6,11 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Wars Movie Search</title>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <script src="UILayer.js" defer></script>
+    <script src="js/UILayer.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Lemonada|Ubuntu&display=swap" rel="stylesheet">
+  
 </head>
 <body>
-    <div class="movies-list">
-
+    
+    <div class=" container container__background--dark">
+        <video autoplay muted loop class=" container__background--video first__video">
+            <source src="css/movie/Starfield_Fly_Through.mp4" type="video/mp4">
+        </video>
+         <section class="main">
+            <header class="header">
+                <p class="caption  caption__first ">welcome to the</p>
+                <div class="content__h1Header">
+                    <h1 class="h1Header  caption__firstH1Header">dark</h1>
+                    <h1 class="h1Header  caption__secondH1Header">side</h1>
+                </div>
+                <p class="caption caption__third">find movie from saga star wars</p>
+            </header>
+            <article class="article article__first">
+                <input type="text" id="movie-input" class="movie-search-input" placeholder="Type here..." />
+                <button id="movie-search" class="button-search">SEARCH</button>
+            </article>
+            <article class="article article__second article__second--bacground">
+                <ul class="list__cards">
+                    <div class="card  card--shadow card__backgroundFirst--image">
+                        <div class="card__bacground--transparency"></div>
+                        <div  class="card__content card__titleContent card__titleContent--position card__titleContent--yelow">
+                            <h1 class="card__header card__headerName  ">Header</h1>
+                        </div>
+                        <div class="card__content card__directorContent card__directorContent--position">
+                            <p class="card__header card__directorHeader card__header--red">Director:</p>
+                            <p class=" card__name card__directorName card__name--white">asfadasdfasfadsfdsf</p>
+                        </div>
+                        <div class="card__content card__producerContent card__producerContent--position">
+                            <p class="card__header card__producer card__header--red">Producer:</p>
+                            <p class="card__name card__producerName card__name--white">lsdkjfdskhfuirhgieurahgfdaihgfdalijglfdaijglfdij ojdoijgdfoijgoiej </p>
+                        </div>
+                        <div class="card__content card__dateContent card__dateContent--position">
+                            <p class="card__header card_date card__header--red">Realase Date:</p>
+                            <p class="card__name card_dateRealase card__name--white"> 10may 2019</p>
+                        </div>
+                    </div>
+                 
+                    
+                </ul>
+            </article>
+               
+           
+        </section>
+        
     </div>
+   
+    
 </body>
 </html>
