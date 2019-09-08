@@ -15,8 +15,6 @@ async function getFilm(url){
     return movie; 
 }
 
-
-
 async function  sendingRequest(moviesName){
     const url = "https://swapi.co/api/films/?search=";
     const link = encodeURI(url + moviesName);
@@ -27,6 +25,7 @@ async function  sendingRequest(moviesName){
          })
          .then(response => response.json())
          .then(response => {
+
               const dataAboutMovies = response["results"][0] != undefined ? response["results"] : "Nothing finded";
               return dataAboutMovies
          }).catch(err => {
@@ -36,11 +35,9 @@ async function  sendingRequest(moviesName){
 };
 async function SearchingMovies (moviesName) {
     const response = await sendingRequest(moviesName);
-    // console.log(response);
     return response
 };
 export { SearchingMovies};
-
 
 // Get all planets in SWAPI
 async function getPlanets() {
@@ -52,10 +49,8 @@ async function getPlanets() {
         planets.push(...response.results);
         path = response.next;
     }
-
     return planets;
 }
-
 
 // Get one specific planet 
 async function getPlanet(path) {
@@ -90,7 +85,6 @@ async function getCharacter(URL){
     let character = await getResponse(URL);
     return character; 
 }
-
 
 
 // Get all vehicles

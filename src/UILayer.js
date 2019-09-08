@@ -1,3 +1,4 @@
+
 import {SearchingMovies} from "./SWAPIService.js"
 // ******* UI Layer *********
 
@@ -94,6 +95,5 @@ $searchButton.addEventListener("click", () => {
               movies = resolve;
         }
         render();
-    });
-    
-})
+    }); 
+});
