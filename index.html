@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Star Wars Movie Search</title>
-    <link rel="stylesheet" href="src/style.css" type="text/css"/>
-   
-    <link href="https://fonts.googleapis.com/css?family=Lemonada|Ubuntu&display=swap" rel="stylesheet">
-    <script  type="module" src="src/UILayer.js" defer></script>
-
-  
-</head>
-<body class="b-body">
-    <div class="b-body__content">
-        <section class="main-Section">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Star Wars Movie Search</title>
+        <link rel="stylesheet" href="src/style.css" type="text/css"/>
+    
+        <link href="https://fonts.googleapis.com/css?family=Lemonada|Ubuntu&display=swap" rel="stylesheet">
+        <script  type="module" src="src/UILayer.js" defer></script>
+    </head>
+    <body class="b-body">
+        <div class="b-body__content">
             <header class="header">
                 <video autoplay muted loop class=" header__background--video">
                     <source src="src/movie/Starfield_Fly_Through.mp4" type="video/mp4">
                 </video>
-                <div class="b-header__image b-header__imageFirst--position">
+                <div class="b-header__image b-header__image-first--back-img b-header__image-first--position">
                 </div>
-                <div class="b-header__image  b-header__imageSecond--position b-header__imageSecond--angle">
+                <div class="b-header__image b-header__image-second--back-img b-header__image-second--position
+                        b-header__image-second--angel
+                        b-header__image-second--big-size">
                 </div>
-                <p class="caption  caption__first ">welcome to the</p>
-                <div class="content__captioSecond">
-                     <div class="content__h1 content__h1First">
-                         <h1 class="h1Header  caption__firstH1Header">DARK</h1>
-                     </div>
-                     <div class="content__h1 content__h1Second">
-                         <h1 class="h1Header  caption__secondH1Header">SIDE</h1>
-                     </div>
+                <p class="header_caption-first">welcome to the</p>
+                <div class="b-header__caption-second">
+                    <div class="b-header__content-caption-second">
+                        <h1 class="b-header__content-caption-second__header">DARK</h1>
+                    </div>
+                    <div class="b-header__content-caption-second">
+                        <h1 class="b-header__content-caption-second__header">SIDE</h1>
+                    </div>
                 </div>
-               
-                <p class="caption caption__third">find movie from saga star wars</p>
+                <p class="header__caption-third">find movie from saga star wars</p>
             </header>
-            <article class="article article__first">
-               
-
+            <section class="main-section">
+                <article class="main-section__article main-section__content-input">
+                    <div class="search-panel">
+                       
+                    </div>
+                <h1 class="main-section__content-input__caption-nothing-finded "></h1>
+                </article>
+                <article class="main-section__article main-section__content-items main-section__content-items--back-color">
                 
-                <input type="text" id="movie-input" class="movie-search-input" placeholder="Type here..." />
-                <button id="movie-search" class="button-search">SEARCH</button>
-                 <h1 class="header__nothingFinded"></h1>
-            </article>
-            <article class="article article__second article__second--bacground">
-            </article>
-        </section>
-</body>
-
- 
+                </article>
+            </section>
+    </body>
 </html>

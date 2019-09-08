@@ -14,14 +14,7 @@
 .b-body__content {
     width: 100%;
 }
-.main-Section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+
 .header{
     text-align: center;
     line-height: 0rem;
@@ -35,6 +28,7 @@
 .header__background--video{
     min-width: 100%;
     max-width: 100%;
+    position: absolute;
     z-index: -1;
 }
 .b-header__image{
@@ -44,129 +38,101 @@
     background-size: cover; 
     background-position: center;
 }
-.b-header__imageFirst--backImg {
+.b-header__image-first--back-img {
     background-image: url(images/starwars_PNG56.png);
 }
-.b-header__imageFirst--position {
+.b-header__image-first--position {
     top: 2rem;
     left: 2rem;
 }
-
-
-.b-header__imageSecond--backImg{
+.b-header__image-second--back-img{
     background-image: url(images/spaceship-2844250_1280.png);
 }
-
-.b-boxImage__bottom--position{
-    top: 35rem;
+.b-header__image-second--position{
+    top: 28rem;
     left:40%;
 }
-.b-boxImage__bottom--size{
+.b-header__image-second--big-size{
     width: 15vw;
     height: 15vw;
 }
 
-.b-boxImage__bottom--angel{
+.b-header__image-second--angel{
   transform: rotate(-25deg);
 }
 
-.first__video{
-    position: absolute;
-}
-
-
- .caption__first{
-    font-family: Star-Jedi;
-    font-size: 3rem;
+ .header_caption-first{
+     font-family: Star-Jedi;
+     font-size: 3rem;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color:#2999D4;
     -webkit-text-stroke-color:#ffffff;
  }
-
-.content__captioSecond{
+.b-header__caption-second{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
 }
- .content__h1{
+ .b-header__content-caption-second{
      padding: 4rem; 
      margin-bottom: 3rem;
     
  }
-.h1Header{
+.b-header__content-caption-second__header{
     font-family: Star-Jedi-Hol;
     font-size: 13.5rem;
     color:#E60813;
     margin: 0;
 }
 
-.caption__third{
+.header__caption-third{
     font-family: Star-Jedi;
     font-size: 2rem;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color:#ffffff;
 }
-.article{
+.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.main-section__article{
    width: 100%;
    
 }
-.article__first{
-
+.main-section__content-input{
     min-height: 15rem;
     text-align: center; 
 }
-.movie-search-input {
-    max-width: 400px;
-    height: 25px;
-    margin-left: 10%;
-    margin-bottom: 5px;
-    background-color: #efefef;
-    border-radius: 5px;
-    font-size: 18px;
-    outline: none;
-}
 
-.button-search {
-    width: 80px;
-    height: 30px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    text-align: center;
-    background-color: forestgreen;
-    color: #FFF;
-    font-weight: bold;
-    font-size: 12px;
-    border: 1px solid forestgreen;
-    border-radius: 5px;
-    outline: none;
-    transition: transform .03s ease-in-out;
-}
-.button-search:hover {
-    color: forestgreen;
-}
-
-.button-search:active {
-    transform: scale(0.9);
+.search-panel {
+    margin-top: 1%;
 }
 
 
-.article__second{
+
+
+.main-section__content-items{
     position: relative;
     text-align: center;
+    margin-top: 4rem;
 }
-.article__second--bacground{
+.main-section__content-items--back-color{
     background-color: #000000;
 }
-.header__nothingFinded{
-    color:white;
+.main-section__content-input__caption-nothing-finded{
+    color: white;
     font-size: 8rem;
     margin: 0;
-     font-family: Star-Jedi;
-     color:#FFA813;
+    font-family: Star-Jedi;
+    color: #FFA813;
+    margin-top: 10rem;
 }
-.list__cards{
+.main-section__content-items__list__cards{
     width: 97%;
     display: grid;
     grid-gap: 4rem;
@@ -208,33 +174,39 @@
     opacity: 0.6;
     filter: alpha(opacity=60);
 }
-.card__content{
+.b-card__content{
     position: absolute;
     box-sizing: border-box;
     word-wrap: break-word;
-    max-width: 10rem;
+    max-width: 14rem;
 }
-.card__header--red{
-    color:#E60813;
-}
-.card__name--white{
-    color:white;
-}
-.card__titleContent {
+.b-card__header{
     border-bottom: white 0.01rem solid ;
     min-width: 20rem; 
     text-align: center; 
-    padding: 0.5rem;
-    /* padding-bottom: 1rem; */
+    /* padding: 0.5rem; */
     box-sizing: border-box;
-   
+    line-height:0.5rem;
+    
 }
-.card__titleContent--position{
+.b-card__header__caption{
+     font-size: 28px;
+     color:#FFA813;
+     font-family: 'Ubuntu',
+     sans-serif;
+}
+
+.b-card__header--position{
     top:1rem;
     left:4.3rem;
     
 }
-.card__header{
+.card__subtitle--red {
+    color: #E60813;
+}
+
+
+.card__subtitle{
     font-size: 22px;
     font-family: 'Lemonada',
     cursive;
@@ -243,60 +215,54 @@
     line-height:2rem;
     
 }
-
-.card__headerName{
-    font-size: 28px;
-    color:#FFA813;
-    font-family: 'Ubuntu',
-    sans-serif;
-    
-
-}
-.card__directorContent--position{
+.card__content-director--position{
     top:6rem;
     left:0.5rem;
 }
-.card__producerContent{
+.card__content-producer{
     min-width: 12rem;
     min-height: 6.5rem;
     margin: 0;
 }
-.card__producerContent--position{
+.card__content-producer--position{
     right: 2rem;
     top:8.5rem;
 }
-.card__dateContent{
+.card__content-date{
     min-width: 12rem;
     /* border: solid red; */
 }
-.card__dateContent--position{
+.card__content-date--position {
     bottom: 1.4rem;
     left:2rem;
 }
-.card__name{
+.card__subtitle__name{
     font-family: 'Ubuntu',
     sans-serif;
     font-size: 19px;
     margin: 0 0 0 3rem;
 }
-.card__backgroundFirst--image{
+.card__subtitle__name--white {
+    color: white;
+}
+.card__background-first--image{
     background-image: url(images/4oh3plg-free-star-wars-wallpaper.jpg);
    
     
 }
-.card__backgroundSecond--image{
+.card__background-second--image{
     background-image: url(images/5QqOnXd-free-star-wars-wallpaper.jpg);
     
 }
-.card__backgroundThird--image{
+.card__background-third--image{
     background-image: url(images/ALTwMNx-free-star-wars-wallpapers.jpg)
 }
-.card__backgroundFourth--image{
+.card__background-fourth--image{
     background-image: url(images/prnDtZE-free-star-wars-wallpapers.jpg);
 }
-.card__backgroundFifth--image{
+.card__background-fifth--image{
     background-image: url(images/VCHc7zT-free-star-wars-wallpapers.jpg);
 }
-.card__backgroundSixth--image{
+.card__background-sixth--image{
     background-image: url(images/WHY12jS-free-star-wars-wallpaper.jpg);
 }
