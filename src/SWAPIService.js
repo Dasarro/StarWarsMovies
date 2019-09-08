@@ -16,17 +16,18 @@ async function getFilm(url){
 }
 
 
+
 async function  sendingRequest(moviesName){
     const url = "https://swapi.co/api/films/?search=";
     const link = encodeURI(url + moviesName);
-        data =  await fetch(link, {
+        const data =  await fetch(link, {
              "method": "GET",
              "headers": {
              }
          })
          .then(response => response.json())
          .then(response => {
-              const dataAboutMovies = response["results"][0] != undefined ? response["results"] : "Nothing findedd";
+              const dataAboutMovies = response["results"][0] != undefined ? response["results"] : "Nothing finded";
               return dataAboutMovies
          }).catch(err => {
               return err
@@ -35,10 +36,11 @@ async function  sendingRequest(moviesName){
 };
 async function SearchingMovies (moviesName) {
     const response = await sendingRequest(moviesName);
-    console.log(response);
+    // console.log(response);
     return response
 };
-const output= SearchingMovies(""); //return promise 
+export { SearchingMovies};
+
 
 // Get all planets in SWAPI
 async function getPlanets() {
@@ -53,6 +55,7 @@ async function getPlanets() {
 
     return planets;
 }
+
 
 // Get one specific planet 
 async function getPlanet(path) {
@@ -89,22 +92,7 @@ async function getCharacter(URL){
 }
 
 
-//Get movies and push into array
-async function getFilms(){
-    const movies = [];
-    let url = "https://swapi.co/api/films/";
-    while(url !== null){
-        const response = await getResponse(url);
-        movies.push(...response.results);
-        url = response.next;
-    }
-    return movies;
-}
-// Get single movie
-async function getFilm(url){
-    let movie = await getResponse(url);
-    return movie; 
-}
+
 // Get all vehicles
 async function getVehicles(){
     const vehicles = [];

@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Wars Movie Search</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <script src="js/UILayer.js" defer></script>
+    <link rel="stylesheet" href="src/style.css" type="text/css"/>
+   
     <link href="https://fonts.googleapis.com/css?family=Lemonada|Ubuntu&display=swap" rel="stylesheet">
+    <script  type="module" src="src/UILayer.js" defer></script>
+
   
 </head>
-<body>
-    
-    <div class=" container container__background--dark">
-        <video autoplay muted loop class=" container__background--video first__video">
-            <source src="css/movie/Starfield_Fly_Through.mp4" type="video/mp4">
-        </video>
-         <section class="main">
+<body class="b-body">
+    <div class="b-body__content">
+        <section class="main-Section">
             <header class="header">
+                <video autoplay muted loop class=" header__background--video">
+                    <source src="src/movie/Starfield_Fly_Through.mp4" type="video/mp4">
+                </video>
+                <div class="b-header__image b-header__imageFirst--position">
+                </div>
+                <div class="b-header__image  b-header__imageSecond--position b-header__imageSecond--angle">
+                </div>
                 <p class="caption  caption__first ">welcome to the</p>
-                <div class="content__h1Header">
+                <div class="content__captioSecond">
                      <div class="content__h1 content__h1First">
                          <h1 class="h1Header  caption__firstH1Header">DARK</h1>
                      </div>
@@ -31,39 +36,17 @@
                 <p class="caption caption__third">find movie from saga star wars</p>
             </header>
             <article class="article article__first">
+               
+
+                
                 <input type="text" id="movie-input" class="movie-search-input" placeholder="Type here..." />
                 <button id="movie-search" class="button-search">SEARCH</button>
+                 <h1 class="header__nothingFinded"></h1>
             </article>
             <article class="article article__second article__second--bacground">
-                <ul class="list__cards">
-                    <div class="card  card--shadow card__backgroundFirst--image">
-                        <div class="card__bacground--transparency"></div>
-                        <div  class="card__content card__titleContent card__titleContent--position card__titleContent--yelow">
-                            <h1 class="card__header card__headerName  ">Header</h1>
-                        </div>
-                        <div class="card__content card__directorContent card__directorContent--position">
-                            <p class="card__header card__directorHeader card__header--red">Director:</p>
-                            <p class=" card__name card__directorName card__name--white">asfadasdfasfadsfdsf</p>
-                        </div>
-                        <div class="card__content card__producerContent card__producerContent--position">
-                            <p class="card__header card__producer card__header--red">Producer:</p>
-                            <p class="card__name card__producerName card__name--white">lsdkjfdskhfuirhgieurahgfdaihgfdalijglfdaijglfdij ojdoijgdfoijgoiej </p>
-                        </div>
-                        <div class="card__content card__dateContent card__dateContent--position">
-                            <p class="card__header card_date card__header--red">Realase Date:</p>
-                            <p class="card__name card_dateRealase card__name--white"> 10may 2019</p>
-                        </div>
-                    </div>
-                 
-                    
-                </ul>
             </article>
-               
-           
         </section>
-        
-    </div>
-   
-    
 </body>
+
+ 
 </html>
