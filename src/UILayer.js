@@ -1,4 +1,5 @@
 // ******* UI Layer *********
+import {getFilms, getFilm, SearchingMovies, getPlanets, getPlanet, getPeople, getCharacter, getVehicles, getVehicle} from "./SWAPIService.js";
 
 // DOM nodes
 let $moviesList = document.querySelector(".movies-list");
@@ -6,7 +7,7 @@ let $movieInput = document.querySelector("#movie-input");
 let $searchButton = document.querySelector("#movie-search");
 
 // UI functions
-let movies = [];
+let movies = getFilms();
 
 function render() {
     $moviesList.innerHTML = "";

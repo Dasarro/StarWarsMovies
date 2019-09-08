@@ -1,3 +1,6 @@
+export {getFilms, getFilm, SearchingMovies, getPlanets, getPlanet, getPeople, getCharacter, getVehicles, getVehicle};
+
+
 //Get movies and push into array
 async function getFilms(){
     const movies = [];
@@ -38,7 +41,7 @@ async function SearchingMovies (moviesName) {
     console.log(response);
     return response
 };
-const output= SearchingMovies(""); //return promise 
+
 
 // Get all planets in SWAPI
 async function getPlanets() {
@@ -89,22 +92,7 @@ async function getCharacter(URL){
 }
 
 
-//Get movies and push into array
-async function getFilms(){
-    const movies = [];
-    let url = "https://swapi.co/api/films/";
-    while(url !== null){
-        const response = await getResponse(url);
-        movies.push(...response.results);
-        url = response.next;
-    }
-    return movies;
-}
-// Get single movie
-async function getFilm(url){
-    let movie = await getResponse(url);
-    return movie; 
-}
+
 // Get all vehicles
 async function getVehicles(){
     const vehicles = [];
@@ -121,3 +109,20 @@ async function getVehicle(URL){
     let vehicle = await getResponse(URL);
     return vehicle; 
 }
+
+// Get all starships
+async function getStarships(){
+    const starships = [];
+    let URL = 'https://swapi.co/api/starships/';
+    while(URL !== null){
+        const response = await getResponse(URL);
+        starships.push(...response.results);
+        URL = response.next;
+    }
+    return starships;
+}
+// Geet one specific starship
+async function getStarship(URL){
+    let starship = await getResponse(URL);
+    return starship; 
+} 
