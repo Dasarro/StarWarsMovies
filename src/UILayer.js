@@ -1,11 +1,16 @@
-import {SearchingMovies} from "./SWAPIService.js"
 // ******* UI Layer *********
+import { getFilms, getFilm, SearchingMovies, getPlanets, getPlanet, getPeople, getCharacter, getVehicles, getVehicle } from "./SWAPIService.js";
+
+
 
 // DOM nodes
-let $moviesList = document.querySelector(".main-section__content-items");
-let $movieInput = document.querySelector("#movie-input");
-let $searchButton = document.querySelector("#movie-search");
-let $nothingFinded = document.querySelector(".main-section__content-input__caption-nothing-finded");
+let DOMallElem=document.querySelector(".b-body__content");
+
+let $moviesList = DOMallElem.querySelector(".main-section__content-items");
+let $movieInput = DOMallElem.querySelector("#movie-input");
+let $searchButton = DOMallElem.querySelector("#movie-search");
+let $nothingFinded = DOMallElem.querySelector(".main-section__content-input__caption-nothing-finded");
+let $imageMainSect= DOMallElem.querySelector(".b-main__image-second--back-img");
 
 const createCardTitle=(title)=>{
     const divCardContent = document.createElement("div");
@@ -47,7 +52,7 @@ const createMovieCard=(movie,classNamebackImange)=>{
     const producerClassPheader = "card__subtitle card__producer card__subtitle--red";
     const producerClassPName = "card__subtitle__name card__producerName card__subtitle__name--white"
     const dateClassPheader = "card__subtitle card_date card__subtitle--red";
-    const dateClassPName = "card__subtitle__name card_dateRealase card__subtitle__names--white"
+    const dateClassPName = "card__subtitle__name card_dateRealase card__subtitle__name--white"
     const card= document.createElement("div");
     card.className = "card  card--shadow card__backgroundFirst--image " + `${classNamebackImange}`;
     card.appendChild(createDivTransparency());
@@ -55,16 +60,11 @@ const createMovieCard=(movie,classNamebackImange)=>{
     card.appendChild(createCardContent("Director:", director, classNameDivDirector, directClassPheader, directClassPName));
     card.appendChild(createCardContent("Producer:", producer, classNameDivProducer, producerClassPheader, producerClassPName));
     card.appendChild(createCardContent("Realese Date:", realaseDate, classNameDivDate, dateClassPheader, dateClassPName));
-    return  card
-     
-}
+    return  card   
+};
 // UI functions
 let movies = [];
 function render() {
-    if (movies[0] == "Nothing finded") {
-        $moviesList.innerHTML = "";
-        $nothingFinded.innerText="nothig Finded"
-    }else{
         const classBackImage = ["card__background-first--image", "card__background-second--image", "card__background-third--image", "card__background-fourth--image", "card__background-fifth--image", "card__background-sixth--image"];
         const listCard = document.createElement("ul");
         listCard.className = "main-section__content-items__list__cards";
@@ -78,22 +78,21 @@ function render() {
                 i++;
             };
         })
+        $imageMainSect.setAttribute("style", "z-index: 1;");
         $moviesList.innerHTML = "";
         $nothingFinded.innerText = "";
         $moviesList.appendChild(listCard);
-    };
-   
-}
+    };   
 $searchButton.addEventListener("click", () => {
     SearchingMovies($movieInput.value).then(resolve => {
-        console.log(resolve);
-        if (resolve =="Nothing finded") {
-            
-            movies[0] = resolve;
+        if(resolve =="Nothing finded"){
+            $imageMainSect.setAttribute("style", "z-index: -2;");
+            $moviesList.innerHTML = "";
+            $nothingFinded.innerText="nothig Finded"
         }else{
               movies = resolve;
+              render();
         }
-        render();
-    });
-    
-})
+    }); 
+});
+
