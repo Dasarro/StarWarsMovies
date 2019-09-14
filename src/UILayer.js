@@ -2,6 +2,7 @@
 import { getFilms, getFilm, SearchingMovies, getPlanets, getPlanet, getPeople, getCharacter, getVehicles, getVehicle } from "./SWAPIService.js";
 import { generateElementsList } from "./elementsList.js";
 import {generateFilmDetailsView} from "./FilmDetailsView";
+import "./style.css";
 
 export { insideMenu, render};
 
