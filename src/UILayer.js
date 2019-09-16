@@ -3,6 +3,7 @@ import { getFilms, getFilm, SearchingMovies, getPlanets, getPlanet, getPeople, g
 import { generateElementsList } from "./elementsList.js";
 import {generateFilmDetailsView} from "./FilmDetailsView";
 import "./style.css";
+import video from './movie/Starfield_Fly_Through.mp4';
 
 export { insideMenu, render};
 

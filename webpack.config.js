@@ -1,4 +1,5 @@
 const path = require("path");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./src/UILayer.js",
@@ -6,6 +7,11 @@ module.exports = {
         filename: "bundle.js",
         path: path.join(__dirname, "dist")
     },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "./src/template.html"
+      })
+    ],
     module: {
         rules: [
             {
@@ -17,29 +23,41 @@ module.exports = {
                 use: ["style-loader", "css-loader"]
             },
             {
-                test: /\.ttf$/,
-                use: [
-                  {
-                    loader: 'ttf-loader',
-                    options: {
-                      name: './font/[hash].[ext]',
-                    },
-                  },
-                ]
+                test: /\.html$/,
+                use: ["html-loader"]
+            },
+            {
+              test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name].[ext]',
+                    outputPath: 'fonts/'
+                  }
+                }
+              ]
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                  'file-loader',
-                  {
-                    loader: 'image-webpack-loader',
-                    options: {
-                      bypassOnDebug: true, // webpack@1.x
-                      disable: true, // webpack@2.x and newer
-                    },
+                use: {
+                  loader: 'file-loader',
+                  options: {
+                    name: "[name].[ext]",
+                    outputPath: "imgs"
                   },
-                ],
-            }
+                },
+            },
+            {
+              test: /\.mp4$/,
+              use: {
+                loader: 'file-loader',
+                options: {
+                  name: "[name].[ext]",
+                  outputPath: "movie"
+                },
+              },
+          }
         ]
     }
 }
