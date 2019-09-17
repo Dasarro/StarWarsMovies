@@ -7,8 +7,6 @@ import { generateVehicleDetailsView } from "./VehicleDetailsView";
 import { generateStarshipDetailsView } from "./StarshipDetailsView";
 import { backFunction } from "./BackFunction";
 
-<<<<<<< HEAD
-=======
 export { generateCharacterDetailsView };
 
 async function generateCharacterDetailsView(character) {
@@ -195,5 +193,4 @@ async function showVehicles(character) {
         links.appendChild(vehicles);
     });
     nothing(links);
->>>>>>> upstream/master
 }

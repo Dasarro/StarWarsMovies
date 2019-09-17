@@ -142,8 +142,6 @@ async function showFilms(vehicle) {
     }
     markSelected(document.querySelector(".FilmsButton"));
     
-<<<<<<< HEAD
-=======
     const chosenCategory = document.querySelector(".categoryName");
     if (chosenCategory.innerHTML == "Films:") {
         return;
@@ -156,5 +154,4 @@ async function showFilms(vehicle) {
         links.appendChild(film);
     });
     nothing(links);
->>>>>>> upstream/master
 }
