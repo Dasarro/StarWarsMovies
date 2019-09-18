@@ -1,10 +1,10 @@
-
-import { insideMenu, render, nothing } from "./UILayer";
+import { insideMenu, render, nothing, markSelected } from "./UILayer";
 import { generateElementsList } from "./elementsList";
-import { getCharacter, getVehicles, getFilms, getStarships, getPlanet } from "./SWAPIService";
+import { getCharacter, getVehicles, getFilms, getStarships } from "./SWAPIService";
 import { generateFilmDetailsView } from "./FilmDetailsView";
 import { generateVehicleDetailsView } from "./VehicleDetailsView";
 import { generateStarshipDetailsView } from "./StarshipDetailsView";
+import { generatePlanetDetailsView } from "./PlanetDetailsView";
 import { backFunction } from "./BackFunction";
 
 export { generateCharacterDetailsView };
@@ -78,26 +78,30 @@ async function generateCharacterDetailsView(character) {
     gender.innerHTML = `<header>Gender:</header><span>${character.gender}</span>`
     characterInfo.appendChild(gender);
 
-    const homeworld = document.createElement("div");
-    homeworld.classList = "col-12 col-md-6 col-xl-3 info";
-    homeworld.innerHTML = `<header>Homeworld:</header><span>${character.homeworld}</span>`
-    characterInfo.appendChild(homeworld);
+   
+    
+    const requestHomeworld = async () => {
+        const homeworld = document.createElement("div");
+        homeworld.classList = "col-12 col-md-6 col-xl-3 info";
+        const response = await fetch(character.homeworld);
+        const json = await response.json();
+        const homeW = json.name;
+        homeworld.innerHTML = `<header>Homeworld:</header><span>${homeW}</span>`
+        characterInfo.appendChild(homeworld);
+        homeworld.addEventListener("click", () => generatePlanetDetailsView(json))
+    }
+    requestHomeworld();
 
-    const species = document.createElement("div");
-    species.classList = "col-12 col-md-6 col-xl-3 info";
-    species.innerHTML = `<header>Specie:</header><span>${character.species}</span>`
-    characterInfo.appendChild(species);
-
-    const created = document.createElement("div");
-    created.classList = "col-12 col-md-6 col-xl-3 info";
-    created.innerHTML = `<header>Created:</header><span>${character.created}</span>`
-    characterInfo.appendChild(created);
-
-    const edited = document.createElement("div");
-    edited.classList = "col-12 col-md-6 col-xl-3 info";
-    edited.innerHTML = `<header>Edited:</header><span>${character.edited}</span>`
-    characterInfo.appendChild(edited);
-
+    const specieHomeworld = async () => {
+        const specie = document.createElement("div");
+        specie.classList = "col-12 col-md-6 col-xl-3 info";
+        const response = await fetch(character.species);
+        const json = await response.json();
+        const specieH = json.name;
+        specie.innerHTML = `<header>Specie:</header><span>${specieH}</span>`
+        characterInfo.appendChild(specie);
+    }
+    specieHomeworld();
 
     const chosenCategory = document.createElement("div");
     chosenCategory.classList = "categoryName";
@@ -114,19 +118,19 @@ async function generateCharacterDetailsView(character) {
     view.appendChild(links);
 
     const starshipsCategory = document.createElement("div");
-    starshipsCategory.classList = "col-12 col-sm-6 starshipsCategory category";
+    starshipsCategory.classList = "col-12 col-md-4 starshipsCategory category";
     starshipsCategory.innerHTML = "<span class='outline'><span class='black'>starships</span>starships</span>";
     links.appendChild(starshipsCategory);
     starshipsCategory.addEventListener("click", () => showStarships(character));
 
     const vehiclesCategory = document.createElement("div");
-    vehiclesCategory.classList = "col-12 col-sm-6 filmsCategory category";
+    vehiclesCategory.classList = "col-12 col-md-4 filmsCategory category";
     vehiclesCategory.innerHTML = "<span class='outline'><span class='black'>vehicles</span>vehicles</span>";
     links.appendChild(vehiclesCategory);
     vehiclesCategory.addEventListener("click", () => showVehicles(character));
 
     const filmsCategory = document.createElement("div");
-    filmsCategory.classList = "col-12 col-sm-6 vehiclesCategory category";
+    filmsCategory.classList = "col-12 col-md-4 vehiclesCategory category";
     filmsCategory.innerHTML = "<span class='outline'><span class='black'>films</span>films</span>";
     links.appendChild(filmsCategory);
     filmsCategory.addEventListener("click", () => showFilms(character));
@@ -137,7 +141,7 @@ async function showStarships(character) {
     if (loading.style.display != "none") {
         return;
     }
-
+    markSelected(document.querySelector(".StarshipsButton"));
     const chosenCategory = document.querySelector(".categoryName");
     if (chosenCategory.innerHTML == "Starships:") {
         return;
@@ -158,7 +162,7 @@ async function showFilms(planet) {
     if (loading.style.display != "none") {
         return;
     }
-
+    markSelected(document.querySelector(".FilmsButton"));
     const chosenCategory = document.querySelector(".categoryName");
     if (chosenCategory.innerHTML == "Films:") {
         return;
@@ -179,7 +183,7 @@ async function showVehicles(character) {
     if (loading.style.display != "none") {
         return;
     }
-
+    markSelected(document.querySelector(".VehiclesButton"));
     const chosenCategory = document.querySelector(".categoryName");
     if (chosenCategory.innerHTML == "Vehicles:") {
         return;
